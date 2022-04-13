@@ -51,15 +51,15 @@ def get_id(source, digit=18):
      Ptn 1.
       text = "<@&123456789012345678>"
       id = get_id(text)
-      # 123456789012345678
+       -> 123456789012345678
      Ptn 2.
       texts = ["<@&123456789012345678>", "<@234567890123456789>"]
       ids = get_id(texts)
-      # [123456789012345678, 234567890123456789]
+       -> [123456789012345678, 234567890123456789]
      Ptn 3.
       text = "<@&123456789012345678> <@234567890123456789>"
       ids = get_id(text)
-      # [123456789012345678, 234567890123456789]
+       -> [123456789012345678, 234567890123456789]
     """
         
     ids = []
@@ -101,7 +101,7 @@ async def get_discord_object(source, ids, *target):
      target: str
          取得対象
      
-       取得したいオブジェクト | 指定文字列
+       取得したいオブジェクト   | 指定文字列
       ------------------------------------
        Guild                  | "guild"
        Category               | "category"
@@ -120,17 +120,17 @@ async def get_discord_object(source, ids, *target):
      Ptn 1.
       id = 123456789012345678
       role = await get_discord_object(guild, id, "role")
-      # @SampleRole
+       -> @SampleRole
 
      Ptn 2.
       ids = ["234567890123456789", 345678901234567890]
       users = await get_discord_object(guild, ids, "user")
-      # [SampleUser1#1234, SampleUser2#2345]
+       -> [SampleUser1#1234, SampleUser2#2345]
 
      Ptn 3.
       ids = [123456789012345678, "234567890123456789", 345678901234567890]
       users_and_roles = await get_discord_object(guild, ids, "user", "role")
-      # {"role": [@SampleRole], "user": [SampleUser1#1234, SampleUser2#2345]}
+       -> {"role": [@SampleRole], "user": [SampleUser1#1234, SampleUser2#2345]}
     """
         
     objects = {}
