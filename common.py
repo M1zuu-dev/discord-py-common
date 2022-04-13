@@ -246,7 +246,7 @@ async def create_embed(embed_data):
     """
     Description
     ------------
-     埋め込みオブジェクトを生成する。
+     埋め込みオブジェクトを生成する
 
     Parameters
     -----------
