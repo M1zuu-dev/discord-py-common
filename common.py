@@ -79,7 +79,7 @@ def get_id(source, digit=18):
     
     ids = list(set(ids))
     
-    if not list_flg:
+    if not list_flg and len(ids) <= 1:
         ids = ids[0] if ids[0:] else None
     
     return ids
