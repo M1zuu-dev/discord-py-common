@@ -321,12 +321,15 @@ async def create_embed(embed_data):
     if "timestamp" not in embed_data:
         embed_data["timestamp"] = datetime.datetime.utcnow()
 
-    embed = discord.Embed(title=embed_data["title"],
-                            description=embed_data["description"],
-                            color=embed_data["color"],
-                            url=embed_data["url"],
-                            timestamp=embed_data["timestamp"])
-
+    try:
+        embed = discord.Embed(title=embed_data["title"],
+                                description=embed_data["description"],
+                                color=embed_data["color"],
+                                url=embed_data["url"],
+                                timestamp=embed_data["timestamp"])
+    except:
+        return None
+        
     for key in embed_data:
         if key == "fields":
             for field in embed_data[key]:
