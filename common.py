@@ -267,7 +267,7 @@ async def create_embed(embed_data):
      "thumbnail_url" | str      | 右上に表示する画像URL
      
       embed_data(サンプル)
-      -----------
+      --------------------
       {
         "title": "埋め込みのタイトル",
         "description": "埋め込みの説明",
