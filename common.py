@@ -253,18 +253,18 @@ async def create_embed(embed_data):
      embed_data: dict
          埋め込み情報
      
-      キー           | 型       | 説明
-     -------------------------------------------
-     "title"         | str      | タイトル
-     "description"   | str      | 説明
-     "color"         | int      | 左辺の色
-     "url"           | str      | タイトルに適応するURL
-     "timestamp"     | datetime | 右下に表示する時間
-     "fields"        | list     | フィールド
-     "author"        | dict     | ヘッダー
-     "footer"        | dict     | フッター
-     "image_url"     | str      | 下部に表示する画像URL
-     "thumbnail_url" | str      | 右上に表示する画像URL
+      キー           | 型       | 説明                 | 初期値
+     -----------------------------------------------------------------------------
+     "title"         | str      | タイトル             | ""
+     "description"   | str      | 説明                 | ""
+     "color"         | int      | 左辺の色             | 0x36393F # Discordの背景色
+     "url"           | str      | タイトルに適応するURL | ""
+     "timestamp"     | datetime | 右下に表示する時間    | UTC
+     "fields"        | list     | フィールド           | 
+     "author"        | dict     | ヘッダー             | 
+     "footer"        | dict     | フッター             | 
+     "image_url"     | str      | 下部に表示する画像URL | 
+     "thumbnail_url" | str      | 右上に表示する画像URL | 
      
       embed_data(サンプル)
       --------------------
@@ -313,7 +313,7 @@ async def create_embed(embed_data):
         embed_data["description"] = ""
 
     if "color" not in embed_data or embed_data["color"] == "":
-        embed_data["color"] = 0x36393F  # Discordの背景色
+        embed_data["color"] = 0x36393F
 
     if "url" not in embed_data:
         embed_data["url"] = discord.Embed.Empty
