@@ -130,7 +130,7 @@ async def get_discord_object(source, ids, *target):
      Ptn 3.
       ids = [123456789012345678, "234567890123456789", 345678901234567890]
       users_and_roles = await get_discord_object(guild, ids, "user", "role")
-       -> {"role": [@SampleRole], "user": [SampleUser1#1234, SampleUser2#2345]}
+       -> {"role": @SampleRole, "user": [SampleUser1#1234, SampleUser2#2345]}
     """
         
     objects = {}
