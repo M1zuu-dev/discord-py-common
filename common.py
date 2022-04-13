@@ -79,7 +79,7 @@ def get_id(source, digit=18):
     
     ids = list(set(ids))
     
-    if len(ids) <= 1:
+    if not list_flg:
         ids = ids[0] if ids[0:] else None
     
     return ids
@@ -130,7 +130,7 @@ async def get_discord_object(source, ids, *target):
      Ptn 3.
       ids = [123456789012345678, "234567890123456789", 345678901234567890]
       users_and_roles = await get_discord_object(guild, ids, "user", "role")
-       -> {"role": @SampleRole, "user": [SampleUser1#1234, SampleUser2#2345]}
+       -> {"role": [@SampleRole], "user": [SampleUser1#1234, SampleUser2#2345]}
     """
         
     objects = {}
@@ -232,7 +232,7 @@ async def get_discord_object(source, ids, *target):
                 pass
     
     for key, value in objects.items():
-        if list_flg and len(value) > 1:
+        if list_flg:
             objects[key] = list(value)
         else:
             objects[key] = list(value)[0] if list(value)[0:] else None
