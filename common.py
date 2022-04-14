@@ -8,7 +8,7 @@ class MessageData:
         self.guild = message.guild
         self.category = message.channel.category
         self.channel = message.channel
-        self.author = message.author
+        self.user = message.author
         self.content = message.content if message.content else message.system_content
         self.stickers = message.stickers
         self.user_mentions = message.mentions
@@ -20,7 +20,7 @@ class MessageData:
         self.url = message.jump_url
 
     def get_user_name(self):
-        return "{}#{}".format(self.author.name, self.author.discriminator) if self.author else ""
+        return "{}#{}".format(self.user.name, self.user.discriminator) if self.user else ""
     
     def get_text_send_time(self, fmt="%Y-%m-%d %H:%M:%S"):
         return self.send_time.strftime(fmt) if self.send_time else ""
