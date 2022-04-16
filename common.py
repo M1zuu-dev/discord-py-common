@@ -231,14 +231,15 @@ async def get_discord_object(source, ids, *target):
             except:
                 pass
     
-    for key, value in objects.items():
-        if list_flg:
-            objects[key] = list(value)
-        else:
-            objects[key] = list(value)[0] if list(value)[0:] else None
-    
-    if len(target) == 1:
-        objects = objects[next(iter(objects))]
+    if objects:
+        for key, value in objects.items():
+            if list_flg:
+                objects[key] = list(value)
+            else:
+                objects[key] = list(value)[0] if list(value)[0:] else None
+
+        if len(target) == 1:
+            objects = objects[next(iter(objects))]
         
     return objects
 
