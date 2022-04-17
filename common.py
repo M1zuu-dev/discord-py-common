@@ -337,10 +337,8 @@ async def create_embed(embed_data):
 
                 field["inline"] = False if "inline" not in field else field["inline"]
 
-                try:
+                if field["name"] and field["value"]:
                     embed.add_field(name=field["name"], value=field["value"], inline=field["inline"])
-                except:
-                    pass
 
         elif key == "author":
             if embed_data[key]:
