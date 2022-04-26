@@ -18,6 +18,12 @@ class MessageData:
         self.send_time = message.created_at
         self.edit_time = message.edited_at
         self.url = message.jump_url
+    
+    def __str__(self):
+        return self.get_user_name()
+    
+    def __repr__(self):
+        return self.get_user_name()
 
     def get_user_name(self):
         return "{}#{}".format(self.user.name, self.user.discriminator) if self.user else ""
