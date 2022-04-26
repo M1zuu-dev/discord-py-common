@@ -20,10 +20,10 @@ class MessageData:
         self.url = message.jump_url
     
     def __str__(self):
-        return self.get_user_name()
+        return self.get_user_name() + ":" + self.content
     
     def __repr__(self):
-        return self.get_user_name()
+        return self.get_user_name() + ":" + self.content
 
     def get_user_name(self):
         return "{}#{}".format(self.user.name, self.user.discriminator) if self.user else ""
